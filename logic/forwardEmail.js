@@ -1,3 +1,4 @@
+import sendMail from "../mailman.js";
 import CustomEmail from "./models/emails.js";
 
 export default async function forwardEmail({
@@ -31,7 +32,7 @@ export default async function forwardEmail({
 }
 
 function doSending(from, to, content) {
-  console.log(`Forwarded to: ${to}`);
+  console.log(`Forwarded to: ${to} from ${from}`);
 
   sendMail({
     from: `"Sender Name" <${from}>`,
