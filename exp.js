@@ -31,6 +31,8 @@ console.log("------------------------------------Sending test email....");
 application.post("/email", (req, res) => {
   console.log("got request");
   // logic for forwarding
+
+  console.log(req.body);
   const data = req.body;
   const sender = data.from;
   const receiver = data.to;
