@@ -2,10 +2,31 @@ import bodyParser from "body-parser";
 
 import express from "express";
 import forwardEmail from "./logic/forwardEmail.js";
+import sendMail from "./mailman.js";
 
 const application = express();
 application.use(bodyParser.json());
 application.use(bodyParser.urlencoded({ extended: true }));
+
+// sendEmail({
+//   from: `"Sender Name" <${sender}@example.com>`,
+//   to: `${receiver}@kaisersemporium.com`,
+//   subject: `${subject}`,
+//   text: `${text}`,
+//   html: `${body}`,
+// });
+
+console.log("------------------------------------Sending test email....");
+
+sendMail({
+  from: '"Kaisers Emporium" <nikhil@kaisersemporium.com>',
+  // to: 'rishavkumar2700@gmail.com',
+  // to: "rishabhdev2700@gmail.com",
+  to: "arnav010singh@gmail.com",
+  subject: "App is working.....",
+  text: "Welcome to kaisersemporium",
+  html: "<b>This is from nikhil to check thread?</b>",
+});
 
 application.post("/email", (req, res) => {
   console.log("got request");
@@ -16,14 +37,6 @@ application.post("/email", (req, res) => {
   const subject = data.subject;
   const body = data.body;
   const text = "";
-
-  //   sendEmail({
-  //     from: `"Sender Name" <${sender}@example.com>`,
-  //     to: `${receiver}@kaisersemporium.com`,
-  //     subject: `${subject}`,
-  //     text: `${text}`,
-  //     html: `${body}`,
-  //   });
 
   forwardEmail({
     fromEmail: sender,

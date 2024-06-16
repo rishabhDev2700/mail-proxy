@@ -12,21 +12,22 @@ global.mainDBconnectionEstablished = false;
 // let databaseName =
 //   process.env.ENV_TYPE == "development" ? "upon-backend-dev" : "upon-backend";
 
-let completeDatabaseLink = "mongodb+srv://kaiser:alpha1234@cluster0.csi53io.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+let completeDatabaseLink =
+  "mongodb+srv://kaiser:alpha1234@cluster0.csi53io.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 console.log(completeDatabaseLink);
 
 let mainMongooseInstance = mongoose.createConnection(completeDatabaseLink, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 mainMongooseInstance.on("error", function (error) {
-    console.log("error setting up main database", error);
+  console.log("error setting up main database", error);
 });
 
 mainMongooseInstance.once("open", function () {
-    global.mainDBconnectionEstablished = true;
-    console.log("Main Database connection established");
+  global.mainDBconnectionEstablished = true;
+  console.log("Main Database connection established");
 });
 
 export default mainMongooseInstance;
