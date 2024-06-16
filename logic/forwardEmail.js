@@ -1,6 +1,10 @@
 import CustomEmail from "./models/emails.js";
 
-export default async function forwardEmail(fromEmail, receiverEmail, content) {
+export default async function forwardEmail({
+  fromEmail,
+  receiverEmail,
+  content,
+}) {
   console.log(
     `Email received from ${fromEmail} at ${receiverEmail} is being forwarded to following email....`
   );
