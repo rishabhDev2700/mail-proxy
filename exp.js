@@ -42,7 +42,7 @@ application.post("/email", (req, res) => {
 
   forwardEmail({
     fromEmail: sender,
-    receiver: receiver[0],
+    receiverEmail: receiver[0],
     content: { subject, body, text },
   });
 });
