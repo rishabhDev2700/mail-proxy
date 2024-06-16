@@ -1,12 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 import mainMongooseInstance from "../database.js";
 
-var ObjectId = mongoose.mongo.ObjectId;
+// var ObjectId = mongoose.mongo.ObjectId;
 
 const customEmailSchema = new Schema({
   generatedEmailID: String,
-  customerEmail: String,
-  advertiserEmail: String,
+  customerEmailID: String,
+  advertiserEmailID: String,
 });
 
 let CustomEmail = mainMongooseInstance.model("CustomEmail", customEmailSchema);

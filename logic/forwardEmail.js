@@ -17,15 +17,15 @@ export default async function forwardEmail({
 
   if (!relation) return;
 
-  if (!relation.customerEmail) {
-    relation.customerEmail = fromEmail;
+  if (!relation.customerEmailID) {
+    relation.customerEmailID = fromEmail;
     await relation.save();
-    await doSending(receiverEmail, relation.advertiserEmail, content);
+    await doSending(receiverEmail, relation.advertiserEmailID, content);
   } else {
-    if (fromEmail == relation.advertiserEmail) {
-      await doSending(receiverEmail, relation.customerEmail, content);
+    if (fromEmail == relation.advertiserEmailID) {
+      await doSending(receiverEmail, relation.customerEmailID, content);
     } else {
-      await doSending(receiverEmail, relation.advertiserEmail, content);
+      await doSending(receiverEmail, relation.advertiserEmailID, content);
     }
   }
 }
