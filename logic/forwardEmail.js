@@ -11,6 +11,8 @@ export default async function forwardEmail({
 
   let receiverID = getReceiverID(receiverEmail);
 
+  console.log("receiverID", receiverID);
+
   let relation = await CustomEmail.findOne({ generatedEmailID: receiverID });
 
   if (!relation) return;
