@@ -2,7 +2,15 @@ import nodemailer from "nodemailer";
 
 const sendMail = async function ({ from, to, subject, text, html }) {
   // Create a transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({});
+    let transporter = nodemailer.createTransport({
+        host: 'mail.kaisersemporium.com', // Replace with your SMTP server
+        port: 25, // Replace with the port your SMTP server uses
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: 'battlegriffin@kaisersemporium.com', // Replace with your SMTP username
+            pass: 'behankaloda', // Replace with your SMTP password
+        },
+});
   let mailOptions = {
     from, // sender address
     to, // list of receivers

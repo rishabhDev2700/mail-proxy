@@ -12,7 +12,7 @@ global.mainDBconnectionEstablished = false;
 // let databaseName =
 //   process.env.ENV_TYPE == "development" ? "upon-backend-dev" : "upon-backend";
 
-
+let completeDatabaseLink = "mongodb+srv://kaiser:alpha1234@cluster0.csi53io.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 console.log(completeDatabaseLink);
 
 let mainMongooseInstance = mongoose.createConnection(completeDatabaseLink, {
