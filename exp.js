@@ -18,15 +18,15 @@ application.use(bodyParser.urlencoded({ extended: true }));
 
 console.log("------------------------------------Sending test email....");
 
-sendMail({
-  from: '"Kaisers Emporium" <nikhil@kaisersemporium.com>',
-  // to: 'rishavkumar2700@gmail.com',
-  // to: "rishabhdev2700@gmail.com",
-  to: "arnav010singh@gmail.com",
-  subject: "App is working.....",
-  text: "Welcome to kaisersemporium",
-  html: "<b>This is from nikhil to check thread?</b>",
-});
+// sendMail({
+//   from: '"Kaisers Emporium" <nikhil@kaisersemporium.com>',
+//   // to: 'rishavkumar2700@gmail.com',
+//   // to: "rishabhdev2700@gmail.com",
+//   to: "arnav010singh@gmail.com",
+//   subject: "App is working.....",
+//   text: "Welcome to kaisersemporium",
+//   html: "<b>This is from nikhil to check thread?</b>",
+// });
 
 application.post("/email", (req, res) => {
   console.log("got request");
