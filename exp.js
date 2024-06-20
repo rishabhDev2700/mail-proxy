@@ -33,12 +33,16 @@ application.post("/email", (req, res) => {
   // logic for forwarding
 
   console.log(req.body);
+
   const data = req.body;
+
   const sender = data.from;
   const receiver = data.to;
   const subject = data.subject;
   const body = data.body;
   const text = "";
+
+  console.log(`initiating forward from ${sender} with ID: ${receiver[0]}`);
 
   forwardEmail({
     fromEmail: sender,
