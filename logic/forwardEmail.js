@@ -35,7 +35,7 @@ function doSending(from, to, content) {
   console.log(`Forwarded to: ${to} from ${from}`);
 
   sendMail({
-    from: `"Sender Name" <${from}>`,
+    from: `"" <${from}>`,
     to: to,
     subject: `${content.subject}`,
     text: `${content.text}`,
