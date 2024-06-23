@@ -5,8 +5,14 @@ import forwardEmail from "./logic/forwardEmail.js";
 import sendMail from "./mailman.js";
 
 const application = express();
-application.use(bodyParser.json());
-application.use(bodyParser.urlencoded({ extended: true }));
+application.use(bodyParser.json({ limit: "50mb", type: "application/json" }));
+application.use(
+  bodyParser.urlencoded({
+    parameterLimit: 100000,
+    limit: "50mb",
+    extended: true,
+  })
+);
 
 // sendEmail({
 //   from: `"Sender Name" <${sender}@example.com>`,
