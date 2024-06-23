@@ -48,7 +48,7 @@ application.post("/email", (req, res) => {
   forwardEmail({
     fromEmail: sender,
     receiverEmail: receiver[0],
-    content: { subject, body, text,attachments },
+    content: { subject, body, text, attachments },
   });
 });
 

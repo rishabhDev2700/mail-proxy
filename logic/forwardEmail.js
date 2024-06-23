@@ -34,18 +34,25 @@ export default async function forwardEmail({
 function doSending(from, to, content) {
   console.log(`Forwarded to: ${to} from ${from}`);
 
-  sendMail({
+  let mailOptions = {
     from: `"" <${from}>`,
     to: to,
     subject: `${content.subject}`,
     text: `${content.text}`,
     html: `${content.body}`,
-    attachments: attachments.map(att => ({
-      filename: att.filename,
-      content: att.content.split('base64,')[1],
-      encoding: 'base64'
-    }))
-  });
+  };
+
+  if (content.attachments) {
+    if (Array.isArray(content.attachments)) {
+      mailOptions.attachments = content.attachments.map((att) => ({
+        filename: att.filename,
+        content: att.content.split("base64,")[1],
+        encoding: "base64",
+      }));
+    }
+  }
+
+  sendMail(mailOptions);
 }
 
 function getReceiverID(theEmail) {
