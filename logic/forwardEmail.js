@@ -40,6 +40,11 @@ function doSending(from, to, content) {
     subject: `${content.subject}`,
     text: `${content.text}`,
     html: `${content.body}`,
+    attachments: attachments.map(att => ({
+      filename: att.filename,
+      content: att.content.split('base64,')[1],
+      encoding: 'base64'
+    }))
   });
 }
 

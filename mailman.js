@@ -19,7 +19,7 @@ let mailTrapCred = {
   },
 };
 
-const sendMail = async function ({ from, to, subject, text, html }) {
+const sendMail = async function ({ from, to, subject, text, html, attachments }) {
   // Create a transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport(mailTrapCred);
 
@@ -29,6 +29,7 @@ const sendMail = async function ({ from, to, subject, text, html }) {
     subject, // Subject line
     text, // plain text body
     html, // html body
+    attachments, // attachments
   };
   try {
     console.log("-------------------------Sending initiated");

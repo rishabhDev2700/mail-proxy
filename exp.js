@@ -41,13 +41,14 @@ application.post("/email", (req, res) => {
   const subject = data.subject;
   const body = data.body;
   const text = "";
+  const attachments = data.attachments;
 
   console.log(`initiating forward from ${sender} with ID: ${receiver[0]}`);
 
   forwardEmail({
     fromEmail: sender,
     receiverEmail: receiver[0],
-    content: { subject, body, text },
+    content: { subject, body, text,attachments },
   });
 });
 
